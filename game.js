@@ -61,7 +61,7 @@ function startGame(para,butt,time){
                 buttons.color='gold';
                 word.textContent=''
                 round.textContent=''
-                buttons.textContent='Time up!You lose.'
+                score.textContent='Time up!You lose.'
                 clearInterval(t);
                 countparent.removeChild(countdown);
                 let playAgain =document.createElement('button')
@@ -73,7 +73,6 @@ function startGame(para,butt,time){
                 playAgain.onclick=function(){window.location.reload()}
                 countparent.appendChild(playAgain)
                 playAgain.focus();
-
             }
 
         }
@@ -122,6 +121,10 @@ function startGame(para,butt,time){
                     ++roundNumber;para=0;
                     word.textContent=wordList[roundNumber][para];
                     round.innerHTML='Round '+roundNumber+':-'+roundName[roundNumber];
+                }
+                if(roundNumber==6 && para ==10)
+                {
+                    score.textContent='Congrats!!You passed the game!Your score is'+countdown.textContent
                 }
                 
             }
